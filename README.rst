@@ -9,6 +9,7 @@ It uses the packages
 
 * `aws_simple_pipeline <https://github.com/bilardi/aws-simple-pipeline>`_ for managing the Continuous Deployment
 * `aws_static_website <https://github.com/bilardi/aws-static-website>`_ for deploying the Website resources
+* `aws_saving <https://github.com/bilardi/aws-saving>`_ for saving on AWS costs
 
 It is part of the `educational repositories <https://github.com/pandle/materials>`_ to learn how to write stardard code and common uses of the TDD, CI and CD.
 

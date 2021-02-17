@@ -31,7 +31,7 @@ if [ $? -ne 0 ]; then
 fi
 cd -
 
-cdk deploy '*' -c stage=${STAGE} --require-approval never 
+cdk deploy -a 'python app_website.py' -c stage=${STAGE} --require-approval never 
 if [ $? -ne 0 ]; then
     echo "DEPLOY stage ${STAGE} FAILED"
     exit 1
