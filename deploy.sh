@@ -38,7 +38,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo Copy build in $STAGE
-cd application/reactJS
+cd resources/reactJS
 if [[ ${STAGE} == *'production'* ]]; then
     aws s3 sync build/ s3://bucket.domain.name/;
 else

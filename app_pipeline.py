@@ -8,7 +8,7 @@ github_owner = "bilardi"
 github_repo = "aws-static-gui-resources"
 github_branch = "master"
 github_token = core.SecretValue.secrets_manager(
-    "/aws-static-gui-resources/secrets/github/token",
+    "/aws-simple-pipeline/secrets/github/token",
     json_field='github-token',
 )
 notify_emails = [ "your@email.net" ]
@@ -17,6 +17,11 @@ policies = [
     "AWSCloudFormationFullAccess",
     "AmazonS3FullAccess",
     "IAMFullAccess",
+    "AmazonAPIGatewayAdministrator",
+    "CloudFrontFullAccess",
+#    "SecretsManagerReadWrite",
+#    "AWSCodePipelineFullAccess",
+#    "AWSCodeBuildAdminAccess"
 ]
 
 app = core.App()
