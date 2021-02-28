@@ -47,7 +47,9 @@ or, if you want to use the branch name like the stage name, here is the example 
 Remove on AWS
 #############
 
-You can destroy the resources with a few commands
+If you use the saving tags, you can forget to destroy all resources because they will be deleted at time that you will have specified by `saving lambda <https://aws-saving.readthedocs.io/en/latest/>`_ that you will have deployed.
+
+Alternatively, you can destroy the resources with a few commands
 
 .. code-block:: bash
 

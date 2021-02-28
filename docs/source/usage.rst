@@ -63,5 +63,5 @@ It is simple to use **aws_saving**: you only have to add `some tags <https://aws
 
 In these commits, you can find an example of where to change:
 
-* on pipeline and website `resources by AWS CDK <>`_
-* on application `resources by Serverless framework <>`_
+* on pipeline and website `resources by AWS CDK <https://github.com/bilardi/aws-static-gui-resources/commit/15901d0c4d31e7d91c2bca50f4fdae619a594f0e>`_
+* on application `resources by Serverless framework <https://github.com/bilardi/auth0-APIGateway-CustomAuthorizer/commit/23f03bb9a7d91e54155e11f3923ae035e1e2031b>`_
