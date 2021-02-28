@@ -19,10 +19,7 @@ policies = [
     "AmazonS3FullAccess",
     "IAMFullAccess",
     "AmazonAPIGatewayAdministrator",
-    "CloudFrontFullAccess",
-#    "SecretsManagerReadWrite",
-#    "AWSCodePipelineFullAccess",
-#    "AWSCodeBuildAdminAccess"
+    "CloudFrontFullAccess"
 ]
 
 stage = configuration.get_stage_name(['main', 'master']) # simple method to manage one pipeline per git branch with exception the main branch

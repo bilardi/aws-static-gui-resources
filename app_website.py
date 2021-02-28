@@ -10,6 +10,9 @@ website_params = {
     "error_document": "index.html"
 }
 
+if core.node.try_get_context("stage"):
+    project_name += '-' + core.node.try_get_context("stage")
+
 app = core.App()
 WebsiteStack(app, 
     id=project_name,
