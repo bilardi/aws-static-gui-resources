@@ -10,10 +10,9 @@ website_params = {
     "error_document": "index.html"
 }
 
-if core.node.try_get_context("stage"):
-    project_name += '-' + core.node.try_get_context("stage")
-
 app = core.App()
+if app.node.try_get_context("stage"):
+    project_name += '-' + app.node.try_get_context("stage")
 WebsiteStack(app, 
     id=project_name,
     bucket_name="bucket.domain.name",
