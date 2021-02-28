@@ -12,9 +12,9 @@ phases:
   post_build:
     commands:
       - 'STAGE=$ENV bash ${PWD}/integration_test.sh'
-cache:
-  paths:
-    - '**/*'
-artifacts:
-  files:
-    - '**/*'
+#cache:
+#  paths:
+#    - '**/*'
+#artifacts:
+#  files:
+#    - '**/*'
