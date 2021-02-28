@@ -26,6 +26,8 @@ Deploy on AWS
 
 AWS CDK system allows you to create an **aws_simple_pipeline** for each environment by adding a contextual string parameter (in the sample is **stage**) !
 
+This step is also useful when you need to update a policy for AWS Codebuild or other Pipeline configuration.
+
 .. code-block:: bash
 
     cd aws-simple-pipeline/
@@ -33,7 +35,14 @@ AWS CDK system allows you to create an **aws_simple_pipeline** for each environm
     export STAGE=my-development
     cdk deploy -a 'python app_pipeline.py' -c stage=${STAGE}
 
-This command is also useful when you need to update a policy for AWS Codebuild or other Pipeline configuration.
+or, if you want to use the branch name like the stage name,
+
+.. code-block:: bash
+
+    cd aws-simple-pipeline/
+    git checkout -b my-development
+    export AWS_PROFILE=your-account
+    cdk deploy -a 'python app_pipeline.py'
 
 Remove on AWS
 #############

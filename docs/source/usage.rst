@@ -7,19 +7,46 @@ The AWS static GUI resources contains the scripts for deploying all you need for
 * it works with `aws_static_website <https://aws-static-website.readthedocs.io/en/latest/usage.html>`_
 * and it takes advantage of `aws_saving <https://aws-saving.readthedocs.io/en/latest/usage.html>`_
 
+The packages allow you to manage many environments in parallel by the parameter named **stage**:
+
+* it can be a contextual string parameter as described in :ref:`Development section <Development>`
+* or it can be a parameter of the package initialiazed as implemented in the **app_pipeline.py** where it is the branch name
+
 Example
 #######
 
 You need to create the infrastructure of your `static website <https://github.com/bilardi/auth0-APIGateway-CustomAuthorizer>`_ and you want to use an Auth0 application by Google 
 
-* you have to create an `Auth0 application <https://auth0.com/docs/connections/social/google>`_
+* you have to create an `Connect Apps to Google <https://auth0.com/docs/connections/social/google>`_
 * and then, you can use the domain created by Auth0 and clientId for logging in your static website
+
+Connect Apps to Google
+**********************
+
+When you have
+
+* created your ID client OAuth 2.0 on `API credentials section <https://console.developers.google.com/apis/credentials>`_,
+* and configured your `Auth0 connection <https://manage.auth0.com/#/connections/social>`_,
+
+You can configure your `Auth0 application <https://manage.auth0.com/#/applications>`_ with the names of your buckets used on **Allowed Callback URLs**:
+
+* for your local tests when you run your static website by ``run start`` (see its `README.md <https://github.com/bilardi/auth0-APIGateway-CustomAuthorizer/tree/master/reactJS>`_), http://localhost:3000/callback
+* for your environment named **sample** that you run by app_pipeline.py ``-c stage=sample`` (see :ref:`Getting started <Getting started>`), you have to add the domain name of your buckets, in this example they are
+
+  * https://staging-sample-bucket.domain.name.s3-website-eu-west-1.amazonaws.com/callback
+  * https://production-sample-bucket.domain.name.s3-website-eu-west-1.amazonaws.com/callback
+
+* for your production environment that you run without stage, in this example, the domain names are
+
+  * https://staging-bucket.domain.name.s3-website-eu-west-1.amazonaws.com/callback
+  * https://bucket.domain.name.s3-website-eu-west-1.amazonaws.com/callback
 
 Changes
 *******
 
-The files that you have to update on your `static website <https://github.com/bilardi/auth0-APIGateway-CustomAuthorizer>`_ are two:
+The files that you have to update on your `static website <https://github.com/bilardi/auth0-APIGateway-CustomAuthorizer>`_ are three:
 
+* **reactJS/src/Auth/Auth.js**, for managing more environment and so more callback URLs
 * **reactJS/src/Auth/auth0-variables.js**, for changing the Auth0 details
 * **serverless/serverless.yml**,
 
