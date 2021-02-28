@@ -33,12 +33,16 @@ cd -
 
 if [[ ${STAGE} == 'production' ]]; then
     cdk deploy -a 'python app_website.py' --require-approval never 
+    if [ $? -ne 0 ]; then
+        echo "DEPLOY stage ${STAGE} FAILED"
+        exit 1
+    fi
 else
     cdk deploy -a 'python app_website.py' -c stage=${STAGE} --require-approval never 
-fi
-if [ $? -ne 0 ]; then
-    echo "DEPLOY stage ${STAGE} FAILED"
-    exit 1
+    if [ $? -ne 0 ]; then
+        echo "DEPLOY stage ${STAGE} FAILED"
+        exit 1
+    fi
 fi
 
 echo Copy build in $STAGE
