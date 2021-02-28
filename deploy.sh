@@ -31,15 +31,23 @@ if [ $? -ne 0 ]; then
 fi
 cd -
 
-cdk deploy -a 'python app_website.py' -c stage=${STAGE} --require-approval never 
-if [ $? -ne 0 ]; then
-    echo "DEPLOY stage ${STAGE} FAILED"
-    exit 1
+if [[ ${STAGE} == 'production' ]]; then
+    cdk deploy -a 'python app_website.py' --require-approval never 
+    if [ $? -ne 0 ]; then
+        echo "DEPLOY stage ${STAGE} FAILED"
+        exit 1
+    fi
+else
+    cdk deploy -a 'python app_website.py' -c stage=${STAGE} --require-approval never 
+    if [ $? -ne 0 ]; then
+        echo "DEPLOY stage ${STAGE} FAILED"
+        exit 1
+    fi
 fi
 
 echo Copy build in $STAGE
 cd resources/reactJS
-if [[ ${STAGE} == *'production'* ]]; then
+if [[ ${STAGE} == 'production' ]]; then
     aws s3 sync build/ s3://bucket.domain.name/;
 else
     aws s3 sync build/ s3://$STAGE-bucket.domain.name/;

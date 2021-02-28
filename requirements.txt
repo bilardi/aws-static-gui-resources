@@ -1,8 +1,9 @@
 aws-cdk.core==1.80.0
 pyyaml
+gitpython
 aws-cdk-test-synth
 aws-static_website
-aws_simple_pipeline>=0.0.2
+aws_simple_pipeline>=0.0.3
 aws-cdk.aws-codebuild>=1.62.0,<=1.80.0
 aws-cdk.aws-codepipeline>=1.62.0,<=1.80.0
 aws-cdk.aws-codepipeline-actions>=1.62.0,<=1.80.0

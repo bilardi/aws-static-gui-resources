@@ -33,8 +33,8 @@ master_doc = 'index'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = []
-#extensions = ['rst2pdf.pdfbuilder']
+extensions = ['sphinx.ext.autosectionlabel']
+#extensions = ['sphinx.ext.autosectionlabel', 'rst2pdf.pdfbuilder']
 #pdf_documents = [('index', u'aws-tool-comparison', u'AWS tool comparison', u'Alessandra Bilardi'),]
 
 # Add any paths that contain templates here, relative to this directory.

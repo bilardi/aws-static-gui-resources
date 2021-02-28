@@ -28,7 +28,7 @@ cd resources/serverless
 npm install
 cd -
 echo Install AWS CDK
-npm install -g @aws-cdk/cdk-assets
+npm install -g cdk-assets aws-cdk
 pip3 install --upgrade -r requirements.txt
 if [ $? -ne 0 ]; then
     echo "INSTALL dependencies for stage ${STAGE} FAILED"
