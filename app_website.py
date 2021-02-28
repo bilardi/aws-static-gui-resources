@@ -18,5 +18,5 @@ WebsiteStack(app,
     bucket_name="bucket.domain.name",
     website_params=website_params
 )
-
+configuration.add_tags(core, app)
 app.synth()

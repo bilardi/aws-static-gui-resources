@@ -38,5 +38,5 @@ PipelineStack(app,
     notify_emails=notify_emails,
     policies=policies
 )
-
+configuration.add_tags(core, app)
 app.synth()

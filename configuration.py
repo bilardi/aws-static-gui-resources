@@ -1,6 +1,10 @@
 import git
 
 project_name = "aws-static-gui-resources"
+tags = {
+    "Saving": "Enabled",
+    "Delete": "0 18 . . .",
+}
 
 def get_branch_name():
     """
@@ -24,3 +28,15 @@ def get_stage_name(exception_branches=None):
     if stage in exception_branches:
         stage = ''
     return stage
+
+def add_tags(core, app):
+    """
+    adds tags of application with exception that without stage
+        Args:
+            core (object): module aws_cdk.core
+            app (object): construct which represents an entire CDK app
+    """
+    stage = app.node.try_get_context("stage")
+    if stage:
+        for tag in tags:
+            core.Tags.of(app).add(tag, tags[tag])
